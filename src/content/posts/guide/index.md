@@ -1,18 +1,16 @@
 ---
-title: Simple Guides for Mizuki
+title: Mizuki 简单使用指南
 published: 2024-04-01
-description: "How to use this blog template."
+description: "如何使用此博客模板。"
 image: "./cover.jpeg"
-tags: ["Mizuki", "Blogging", "Customization"]
-category: Guides
+tags: ["Mizuki", "博客", "自定义"]
+category: 指南
 draft: false
 ---
 
+此博客模板使用 [Astro](https://astro.build/) 构建。本指南未提及的内容，您可以在 [Astro 文档](https://docs.astro.build/) 中找到答案。
 
-
-This blog template is built with [Astro](https://astro.build/). For the things that are not mentioned in this guide, you may find the answers in the [Astro Docs](https://docs.astro.build/).
-
-## Front-matter of Posts
+## 文章的前置元数据
 
 ```yaml
 ---
@@ -26,28 +24,23 @@ draft: false
 ---
 ```
 
+| 属性          | 描述                                                         |
+| ------------- | ------------------------------------------------------------ |
+| `title`       | 文章的标题。                                                 |
+| `published`   | 文章的发布日期。                                             |
+| `pinned`      | 是否将此文章置顶于文章列表顶部。                             |
+| `description` | 文章的简短描述。在首页显示。                                 |
+| `image`       | 文章的封面图片路径。<br/>1. 以 `http://` 或 `https://` 开头：使用网络图片<br/>2. 以 `/` 开头：指向 `public` 目录中的图片<br/>3. 无上述前缀：相对于 markdown 文件 |
+| `tags`        | 文章的标签。                                                 |
+| `category`    | 文章的分类。                                                 |
+| `licenseName` | 文章内容的许可证名称。                                       |
+| `author`      | 文章的作者。                                                 |
+| `sourceLink`  | 文章内容的源链接或参考来源。                                 |
+| `draft`       | 如果文章仍是草稿，则不会显示。                               |
 
+## 文章文件的存放位置
 
-
-| Attribute     | Description                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`       | The title of the post.                                                                                                                                                                                      |
-| `published`   | The date the post was published.                                                                                                                                                                            |
-| `pinned`      | Whether this post is pinned to the top of the post list.                                                                                                                                                   |
-| `description` | A short description of the post. Displayed on index page.                                                                                                                                                   |
-| `image`       | The cover image path of the post.<br/>1. Start with `http://` or `https://`: Use web image<br/>2. Start with `/`: For image in `public` dir<br/>3. With none of the prefixes: Relative to the markdown file |
-| `tags`        | The tags of the post.                                                                                                                                                                                       |
-| `category`    | The category of the post.                                                                                                                                                                                   |
-| `licenseName` | The license name for the post content.                                                                                                                                                                      |
-| `author`      | The author of the post.                                                                                                                                                                                     |
-| `sourceLink`  | The source link or reference for the post content.                                                                                                                                                          |
-| `draft`       | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
-
-## Where to Place the Post Files
-
-
-
-Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+您的文章文件应放置在 `src/content/posts/` 目录下。您也可以创建子目录来更好地组织您的文章和资源文件。
 
 ```
 src/content/posts/

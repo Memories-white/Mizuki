@@ -7,6 +7,14 @@
 @import './animation-enhancements.css';
 /* 加密内容样式已移除，现在直接使用非加密文章的样式 */
 
+/* 导入 MapleMono 字体 */
+@font-face {
+    font-family: 'MapleMono';
+    src: url('/assets/font/MapleMono-NF-CN-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+
 /* 导入 ZenMaruGothic-Medium 字体 */
 @font-face {
   font-family: 'ZenMaruGothic-Medium';
@@ -14,7 +22,6 @@
   font-weight: 500;
   font-display: swap;
 }
-
 
 
 /* 导入 Hanalei 字体 */
@@ -33,6 +40,11 @@
 /* 确保平滑滚动 */
 html {
     scroll-behavior: smooth;
+}
+
+/* 当启用您的自定义字体时应用为全局字体 */
+.MapleMono {
+    font-family: 'MapleMono', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* 当启用 ZenMaruGothic-Medium 字体时应用为全局字体 */

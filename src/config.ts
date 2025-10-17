@@ -14,26 +14,24 @@ import type {
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
-
 // 移除i18n导入以避免循环依赖
 
 // 定义站点语言
-const SITE_LANG = "en"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-	title: "Mizuki",
-	subtitle: "One demo website",
+	title: "Memories_white的博客",
+	subtitle: "基于Astro框架",
 
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 305, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		hue: 240, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
-	
 	bangumi: {
-		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		userId: "Memories_white", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
 	},
 
 	anime: {
@@ -46,24 +44,25 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/d1.webp",
-				"/assets/desktop-banner/d2.webp",
-				"/assets/desktop-banner/d3.webp",
-				"/assets/desktop-banner/d4.webp",
-				"/assets/desktop-banner/d5.webp",
-				"/assets/desktop-banner/d6.webp",
-				"/assets/desktop-banner/d7.webp",
-				"/assets/desktop-banner/d8.webp",
+				"/assets/desktop-banner/z1.jpg",
+				"/assets/desktop-banner/z2.png",
+				"/assets/desktop-banner/z3.jpg",
+				"/assets/desktop-banner/z4.jpg",
+				"/assets/desktop-banner/z5.jpg",
+				"/assets/desktop-banner/z6.jpg",
+				"/assets/desktop-banner/z7.jpg",
+				"/assets/desktop-banner/z8.jpg",
 			], // 桌面横幅图片
 			mobile: [
-				"/assets/mobile-banner/m1.webp",
-				"/assets/mobile-banner/m2.webp",
-				"/assets/mobile-banner/m3.webp",
-				"/assets/mobile-banner/m4.webp",
-				"/assets/mobile-banner/m5.webp",
-				"/assets/mobile-banner/m6.webp",
+				"/assets/mobile-banner/m1.jpg",
+				"/assets/mobile-banner/m2.jpg",
+				"/assets/mobile-banner/m3.jpg",
+				"/assets/mobile-banner/m4.jpg",
+				"/assets/mobile-banner/m5.jpg",
+				"/assets/mobile-banner/m6.jpg",
 				"/assets/mobile-banner/m7.webp",
-				"/assets/mobile-banner/m8.webp",
+				"/assets/mobile-banner/m8.png",
+				"/assets/mobile-banner/m7.webp",
 			], // 移动横幅图片
 		}, // 使用本地横幅图片
 
@@ -72,7 +71,7 @@ export const siteConfig: SiteConfig = {
 		carousel: {
 			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 
-			interval: 1.5, // 轮播间隔时间（秒）
+			interval: 5, // 轮播间隔时间（秒）
 		},
 
 		// PicFlow API支持(智能图片API)
@@ -86,17 +85,11 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "Beautiful Mizuki!", // 主页横幅主标题
+			title: "Memories_white' Blog!", // 主页横幅主标题
 
-			subtitle: [
-				"A Showcase Demo Site",
-				"Carousel Highlight: Innovation",
-				"Carousel Focus: User Experience",
-				"Carousel Spot: Core Advantages",
-			],
+			subtitle: [],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
-
 				speed: 100, // 打字速度（毫秒）
 				deleteSpeed: 50, // 删除速度（毫秒）
 				pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
@@ -136,6 +129,9 @@ export const siteConfig: SiteConfig = {
 		hanalei: {
 			enable: false, // 启用 Hanalei 字体作为全局字体，适合中文去使用
 		},
+		MapleMono: {
+			enable: false, // 启用自定义字体作为全局字体
+		},
 	},
 	showLastModified: true, // 控制“上次编辑”卡片显示的开关
 };
@@ -166,7 +162,7 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	position: "center", // 壁纸位置，等同于 object-position
 	carousel: {
 		enable: true, // 启用轮播
-		interval: 1, // 轮播间隔时间（秒）
+		interval: 4, // 轮播间隔时间（秒）
 	},
 	zIndex: -1, // 层级，确保壁纸在背景层
 	opacity: 0.8, // 壁纸透明度
@@ -179,100 +175,100 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
 		{
-			name: "Links",
+			name: "链接",
 			url: "/links/",
 			icon: "material-symbols:link",
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/Memories-white",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/111481574",
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
 				{
 					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					url: "https://gitee.com/yi__bai",
 					external: true,
 					icon: "mdi:git",
 				},
 			],
 		},
 		{
-			name: "My",
+			name: "我的",
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
-				LinkPreset.Anime,
+				// LinkPreset.Anime,
 				LinkPreset.Diary,
 				{
-					name: "Gallery",
+					name: "相册",
 					url: "/albums/",
 					icon: "material-symbols:photo-library",
 				},
 			],
 		},
 		{
-			name: "About",
+			name: "关于",
 			url: "/content/",
 			icon: "material-symbols:info",
 			children: [LinkPreset.About, LinkPreset.Friends],
 		},
-		{
-			name: "Others",
-			url: "#",
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
-			],
-		},
+		// {
+		//   name: "Others",
+		//   url: "#",
+		//   icon: "material-symbols:more-horiz",
+		//   children: [
+		//     {
+		//       name: "Projects",
+		//       url: "/projects/",
+		//       icon: "material-symbols:work",
+		//     },
+		//     {
+		//       name: "Skills",
+		//       url: "/skills/",
+		//       icon: "material-symbols:psychology",
+		//     },
+		//     {
+		//       name: "Timeline",
+		//       url: "/timeline/",
+		//       icon: "material-symbols:timeline",
+		//     },
+		//   ],
+		// },
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "Matsuzaka Yuki",
+	avatar: "assets/images/avatar.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	name: "Memories_white",
 	bio: "The world is big, you have to go and see",
 	links: [
 		{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			url: "https://space.bilibili.com/111481574",
 		},
 		{
 			name: "Gitee",
 			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
+			url: "https://gitee.com/yi__bai",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/Memories-white",
 		},
-		{
-			name: "Discord",
-			icon: "fa6-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
-		},
+		// {
+		//   name: "Discord",
+		//   icon: "fa6-brands:discord",
+		//   url: "https://discord.gg/MqW6TcQtVM",
+		// },
 	],
 };
 
@@ -289,7 +285,7 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 };
 
 export const commentConfig: CommentConfig = {
-	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
 	twikoo: {
 		envId: "https://twikoo.vercel.app",
 		lang: "en", // 设置 Twikoo 评论系统语言为英文
@@ -297,8 +293,8 @@ export const commentConfig: CommentConfig = {
 };
 
 export const announcementConfig: AnnouncementConfig = {
-	title: "Announcement", // 公告标题
-	content: "Welcome to my blog! This is a sample announcement.", // 公告内容
+	title: "公告", // 公告标题
+	content: "欢迎来到我的博客！这是一条示例公告。", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
@@ -497,9 +493,9 @@ export const widgetConfigs = {
 
 export const umamiConfig = {
 	enabled: false, // 是否显示Umami统计
-	apiKey: "api_XXXXXXXXXX", // 你的API密钥
+	apiKey: "api_a72ZkITQG2KD0CDoUa2LIEJ6HFOW9BSW", // 你的API密钥
 	baseUrl: "https://api.umami.is", // Umami Cloud API地址
 	scripts: `
-<script defer src="XXXX.XXX" data-website-id="ABCD1234"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fd2d5652-38ae-4ec6-8830-e3a7e00f8b21"></script>
   `.trim(), // 上面填你要插入的Script,不用再去Layout中插入
 } as const;
