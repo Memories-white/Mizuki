@@ -2,7 +2,7 @@
 title: Mizuki 简单使用指南
 published: 2024-04-01
 description: "如何使用此博客模板。"
-image: "./cover.jpeg"
+image: "./cover.jpg"
 tags: ["Mizuki", "博客", "自定义"]
 category: 指南
 draft: false
@@ -17,7 +17,7 @@ draft: false
 title: My First Blog Post
 published: 2023-09-09
 description: This is the first post of my new Astro blog.
-image: ./cover.jpg
+image: ./cover.jpeg
 tags: [Foo, Bar]
 category: Front-end
 draft: false

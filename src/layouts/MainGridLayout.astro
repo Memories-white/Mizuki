@@ -93,40 +93,39 @@ const bannerImages = await getBannerImages();
 
 // 👇 新增：1. 定义获取一言API的函数
 async function getHitokotoSubtitles() {
-  // 目标API地址（你的一言API）
-  const apiUrl = "https://api.nxvav.cn/api/yiyan/?encode=json&charset=utf-8";
-  // 定义默认文本（API失败时 fallback）
-  const defaultSubtitles = [
-    "现在我成为了死神，诸界的毁灭者",
-    "从前曾发生过一次爆炸……",
-    "时间和空间在大爆炸那一刻诞生",
-    "从前曾发生过一次爆炸……",
-    "有个星球在爆炸后诞生并开始自转",
-  ];
+	// 目标API地址（你的一言API）
+	const apiUrl = "https://api.nxvav.cn/api/yiyan/?encode=json&charset=utf-8";
+	// 定义默认文本（API失败时 fallback）
+	const defaultSubtitles = [
+		"现在我成为了死神，诸界的毁灭者",
+		"从前曾发生过一次爆炸……",
+		"时间和空间在大爆炸那一刻诞生",
+		"从前曾发生过一次爆炸……",
+		"有个星球在爆炸后诞生并开始自转",
+	];
 
-  try {
-    // 发起API请求
-    const response = await fetch(apiUrl);
-    // 检查请求是否成功
-    if (!response.ok) throw new Error(`API请求失败: ${response.status}`);
-    
-    // 解析API返回数据（你的API返回结构含"yiyan"字段）
-    const data = await response.json();
-    // 若API返回有效内容，生成包含一言的数组（可扩展为多条）
-    if (data.yiyan) {
-      // 方案1：仅显示一言（替换原有全部文本）
-      return [data.yiyan];
-      // 方案2：一言 + 原有部分文本（混合显示）
-      // return [data.yiyan, ...defaultSubtitles.slice(0, 2)];
-    } else {
-      throw new Error("API返回无有效内容");
-    }
-  } catch (error) {
-    // 打印错误日志（方便调试）
-    console.error("获取一言失败，使用默认文本:", error);
-    // API失败时返回原有默认文本
-    return defaultSubtitles;
-  }
+	try {
+		// 发起API请求
+		const response = await fetch(apiUrl);
+		// 检查请求是否成功
+		if (!response.ok) throw new Error(`API请求失败: ${response.status}`);
+
+		// 解析API返回数据（你的API返回结构含"yiyan"字段）
+		const data = await response.json();
+		// 若API返回有效内容，生成包含一言的数组（可扩展为多条）
+		if (data.yiyan) {
+			// 方案1：仅显示一言（替换原有全部文本）
+			return [data.yiyan];
+			// 方案2：一言 + 原有部分文本（混合显示）
+			// return [data.yiyan, ...defaultSubtitles.slice(0, 2)];
+		}
+		throw new Error("API返回无有效内容");
+	} catch (error) {
+		// 打印错误日志（方便调试）
+		console.error("获取一言失败，使用默认文本:", error);
+		// API失败时返回原有默认文本
+		return defaultSubtitles;
+	}
 }
 
 // 👇 新增：2. 调用函数获取动态字幕（await 必须在顶层脚本中使用）

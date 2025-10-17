@@ -11,16 +11,19 @@ import { musicPlayerConfig } from "../../config";
 import Key from "../../i18n/i18nKey";
 import { i18n } from "../../i18n/translation";
 
+// 播放速度，默认为 1.0
+let playbackRate = 1.0;
+
 // 音乐播放器模式，可选 "local" 或 "meting"，从本地配置中获取或使用默认值 "meting"
-let mode = musicPlayerConfig.mode ?? "local";
+let mode = musicPlayerConfig.mode ?? "meting";
 // Meting API 地址，从配置中获取或使用默认地址(bilibili.uno(由哔哩哔哩松坂有希公益管理)),服务器在海外,部分音乐平台可能不支持并且速度可能慢,也可以自建Meting API
 let meting_api =
 	musicPlayerConfig.meting_api ??
 	"https://www.bilibili.uno/api?server=:server&type=:type&id=:id&auth=:auth&r=:r";
 // Meting API 的 ID，从配置中获取或使用默认值
-let meting_id = musicPlayerConfig.id ?? "8527834081";
+let meting_id = musicPlayerConfig.id ?? "9129324473";
 // Meting API 的服务器，从配置中获取或使用默认值,有的meting的api源支持更多平台,一般来说,netease=网易云音乐, tencent=QQ音乐, kugou=酷狗音乐, xiami=虾米音乐, baidu=百度音乐
-let meting_server = musicPlayerConfig.server ?? "tencent";
+let meting_server = musicPlayerConfig.server ?? "netease";
 // Meting API 的类型，从配置中获取或使用默认值
 let meting_type = musicPlayerConfig.type ?? "playlist";
 // 播放状态，默认为 false (未播放)
@@ -42,7 +45,7 @@ let isMuted = false;
 // 是否正在加载，默认为 false
 let isLoading = false;
 // 是否随机播放，默认为 false
-let isShuffled = false;
+let isShuffled = true;
 // 循环模式，0: 不循环, 1: 单曲循环, 2: 列表循环，默认为 0
 let isRepeating = 0;
 // 错误信息，默认为空字符串
@@ -348,6 +351,26 @@ function handleAudioEvents() {
 	audio.addEventListener("stalled", () => {});
 	audio.addEventListener("waiting", () => {});
 }
+
+onMount(() => {
+	audio = new Audio();
+	audio.volume = volume;
+	// 初始化播放速度
+	audio.playbackRate = playbackRate;
+	handleAudioEvents();
+
+	// 监听播放速度变化（如果需要动态调整）
+	const rateWatcher = setInterval(() => {
+		if (audio && audio.playbackRate !== playbackRate) {
+			audio.playbackRate = playbackRate;
+		}
+	}, 100);
+
+	// 清理函数
+	return () => {
+		clearInterval(rateWatcher);
+	};
+});
 
 onMount(() => {
 	audio = new Audio();
