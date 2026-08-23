@@ -62,14 +62,14 @@ export default defineConfig({
 					styles: ["normal", "italic"],
 				},
 				{
-					name: "ZenMaruGothic-Medium",
+					name: "MapleMono-NF-CN-LightItalic",
 					cssVariable: "--font-body",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/ZenMaruGothic-Medium.woff2"],
-								weight: "500",
+								src: ["./src/assets/fonts/MapleMono-NF-CN-LightItalic.woff2"],
+								weight: "400",
 								style: "normal",
 							},
 						],
@@ -81,14 +81,14 @@ export default defineConfig({
 					optimizedFallbacks: false,
 				},
 				{
-					name: "Loli",
+					name: "MapleMono-NF-CN-LightItalic",
 					cssVariable: "--font-cjk",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/loli.woff2"],
-								weight: "400",
+								src: ["./src/assets/fonts/MapleMono-NF-CN-LightItalic.woff2"],
+								weight: "500",
 								style: "normal",
 							},
 						],

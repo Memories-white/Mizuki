@@ -1,61 +1,49 @@
 ---
-title: Encrypted Post
+title: 加密帖子
 published: 2024-01-15
-description: A generic example of browser-side post encryption.
+description: 这是一篇用于测试页面加密功能的文章。
 encrypted: true
 pinned: false
 password: "123456"
-passwordHint: "123456"
-hideHomeContent: true
 alias: "encrypted-example"
-tags: ["Example", "Encryption"]
-category: "Examples"
+tags: ["测试", "加密"]
+category: "技术"
 ---
 
-This article demonstrates browser-side password protection. The password is intentionally present in the repository so readers can open the example; never reuse it for private content.
+此博客模板使用 [Astro](https://astro.build/) 构建。本指南未提及的内容，您可以在 [Astro 文档](https://docs.astro.build/) 中找到答案。
 
-## Front-matter of Posts
+## 文章的前置元数据
 
 ```yaml
 ---
-title: My First Blog Post
+title: 我的第一篇博客文章
 published: 2023-09-09
-description: This is the first post of my new Astro blog.
+description: 这是我的新 Astro 博客的第一篇文章。
 image: ./cover.jpg
-tags: [Foo, Bar]
-category: Front-end
+tags: [示例, 测试]
+category: 前端
 draft: false
 ---
 ```
 
+| 属性           | 描述                                                                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`        | 文章的标题。                                                                                                                                                     |
+| `published`    | 文章的发布日期。                                                                                                                                                 |
+| `pinned`       | 是否将此文章置顶于文章列表顶部。                                                                                                                                 |
+| `description`  | 文章的简短描述。在首页显示。                                                                                                                                     |
+| `image`        | 文章的封面图片路径。<br/>1. 以 `http://` 或 `https://` 开头：使用网络图片<br/>2. 以 `/` 开头：指向 `public` 目录中的图片<br/>3. 无上述前缀：相对于 markdown 文件 |
+| `tags`         | 文章的标签。                                                                                                                                                     |
+| `category`     | 文章的分类。                                                                                                                                                     |
+| `alias`        | 文章的别名。文章可通过 `/posts/{alias}/` 访问。例如：`my-special-article`（可通过 `/posts/my-special-article/` 访问）                                           |
+| `licenseName`  | 文章内容的许可证名称。                                                                                                                                           |
+| `author`       | 文章的作者。                                                                                                                                                     |
+| `sourceLink`   | 文章内容的源链接或参考来源。                                                                                                                                     |
+| `draft`        | 如果文章仍是草稿，则不会显示。                                                                                                                                   |
 
+## 文章文件的存放位置
 
-
-
-| Attribute     | Description                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`       | The title of the post.                                                                                                                                                                                      |
-| `published`   | The date the post was published.                                                                                                                                                                            |
-| `pinned`      | Whether this post is pinned to the top of the post list.                                                                                                                                                   |
-| `description` | A short description of the post. Displayed on index page.                                                                                                                                                   |
-| `image`       | The cover image path of the post.<br/>1. Start with `http://` or `https://`: Use web image<br/>2. Start with `/`: For image in `public` dir<br/>3. With none of the prefixes: Relative to the markdown file |
-| `tags`        | The tags of the post.                                                                                                                                                                                       |
-| `category`    | The category of the post.                                                                                                                                                                                   |
-| `alias`   | alias for the post. The post will be accessible at `/posts/{alias}/`. Example: `my-special-article` (will be available at `/posts/my-special-article/`)                                   |
-| `licenseName` | The license name for the post content.                                                                                                                                                                      |
-| `author`      | The author of the post.                                                                                                                                                                                     |
-| `sourceLink`  | The source link or reference for the post content.                                                                                                                                                          |
-| `draft`       | If this post is still a draft, which won't be displayed.                                                                                                                                                    |
-| `encrypted`   | Whether this post is password protected.                                                                                                                                                                    |
-| `password`    | The password to unlock the encrypted post.                                                                                                                                                                  |
-| `passwordHint`| A hint to help users remember the password. Displayed below the password input.                                                                                                                             |
-| `hideHomeContent` | Whether to hide public post summaries, including the home page, meta tags, feed/API summaries, and share previews. Defaults to `true` when `password` is set.                                      |
-
-## Where to Place the Post Files
-
-
-
-Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+您的文章文件应放置在 `src/content/posts/` 目录下。您也可以创建子目录来更好地组织您的文章和资源文件。
 
 ```
 src/content/posts/
@@ -65,35 +53,34 @@ src/content/posts/
     └── index.md
 ```
 
-## Posts alias
+## 文章别名
 
-You can set a alias for any post by adding the `alias` field to the front-matter:
+您可以通过在 front-matter 中添加 `alias` 字段为任意文章设置别名：
 
 ```yaml
 ---
-title: My Special Article
+title: 我的特别文章
 published: 2024-01-15
 alias: "my-special-article"
-tags: ["Example"]
-category: "Technology"
+tags: ["示例"]
+category: "技术"
 ---
 ```
 
-When a alias is set:
-- The post will be accessible at the custom URL (e.g., `/posts/my-special-article/`)
-- The default `/posts/{slug}/` URL will still work
-- RSS/Atom feeds will use the custom alias
-- All internal links will automatically use the custom alias
+设置别名后：
+- 文章将通过自定义 URL 访问（例如 `/posts/my-special-article/`）
+- 默认的 `/posts/{slug}/` URL 仍然有效
+- RSS/Atom 订阅将使用自定义别名
+- 所有内部链接将自动使用自定义别名
 
-**Important Notes:**
-- Alias should NOT include `/posts/` prefix (it will be added automatically)
-- Avoid special characters and spaces in alias
-- Use lowercase letters and hyphens for best SEO practices
-- Make sure alias are unique across all posts
-- Don't include leading or trailing slashes
+**重要说明：**
+- 别名**不应**包含 `/posts/` 前缀（将自动添加）
+- 避免在别名中使用特殊字符和空格
+- 为获得最佳 SEO 效果，请使用小写字母和连字符
+- 确保所有文章的别名唯一
+- 不要包含前导或尾随斜杠
 
-
-## How It Works
+## 工作原理
 
 ```mermaid
 graph LR
@@ -102,38 +89,3 @@ graph LR
     C -- "MIZUKI-VERIFY:" found --> D[Success: Render Content]
     C -- Random/Garbage --> E[Fail: Wrong Password]
 ```
-
-## Page Encryption
-
-You can password protect any post by setting `encrypted: true` and providing a `password` in the front-matter:
-
-```yaml
----
-title: My Private Post
-published: 2024-01-15
-encrypted: true
-password: "my-secret-password"
-passwordHint: "Hint: The password is my dog's name"
-hideHomeContent: true
----
-```
-
-### Fields
-
-| Field          | Required | Description                                              |
-|----------------|----------|----------------------------------------------------------|
-| `encrypted`    | Yes      | Set to `true` to enable password protection              |
-| `password`     | Yes      | The password to unlock the post                          |
-| `passwordHint` | No       | A hint displayed below the password input to help users |
-| `hideHomeContent` | No   | Hide public summaries as `该文章已加密`. Defaults to `true` when `password` is set. Set to `false` to show the normal summary. |
-
-### How the Unlock Box Looks
-
-The unlock box displays:
-- A lock icon in the theme's primary color
-- The post title "Password Protected"
-- A description asking for the password
-- A hint (if `passwordHint` is provided)
-- A password input field and unlock button
-
-After entering the correct password, the content is decrypted and displayed. The password is stored in session storage so users don't need to re-enter it on subsequent page loads within the same session.

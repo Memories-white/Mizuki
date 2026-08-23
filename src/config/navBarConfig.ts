@@ -141,19 +141,19 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/LyraVoid/Mizuki",
+					url: "https://github.com/Memories-white",
 					external: true, // 外部链接，新标签页打开
 					icon: "fa7-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/111481574",
 					external: true,
 					icon: "fa7-brands:bilibili",
 				},
 				{
 					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					url: "https://gitee.com/Memories-white",
 					external: true,
 					icon: "mdi:git",
 				},
@@ -166,11 +166,6 @@ export const navBarConfig: NavBarConfig = {
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
-				{
-					name: "Anime",
-					url: "/anime/",
-					icon: "material-symbols:movie",
-				},
 				{
 					name: "Diary",
 					url: "/diary/",
@@ -205,31 +200,6 @@ export const navBarConfig: NavBarConfig = {
 					name: "Friends",
 					url: "/friends/",
 					icon: "material-symbols:group",
-				},
-			],
-		},
-
-		// 自定义一级下拉菜单示例：其他页面
-		{
-			name: "Others",
-			url: "#", // "#" 作为占位 URL，点击不会跳转
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				LinkPreset.AITools,
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
 				},
 			],
 		},
