@@ -68,7 +68,7 @@ export default defineConfig({
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/MapleMono-LightItalic.woff2"],
+								src: ["./src/assets/fonts/MapleMono-Regular.woff2"],
 								weight: "400",
 								style: "normal",
 							},
@@ -81,14 +81,14 @@ export default defineConfig({
 					optimizedFallbacks: false,
 				},
 				{
-					name: "PingFangSC",
+					name: "NotoSansSC",
 					cssVariable: "--font-cjk",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/PingFangSC.woff2"],
-								weight: "500",
+								src: ["./src/assets/fonts/NotoSansSC.woff2"],
+								weight: "400",
 								style: "normal",
 							},
 						],
